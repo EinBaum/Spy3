@@ -1,0 +1,20 @@
+Spy3 = Spy3 or {}
+Spy3.L = {
+	["Spy3"] = "Spy3",
+	["StealthWarning"] = "|cff9933ffStealth player detected: |cffffffff",
+	["ProwlWarning"] = "|cff9933ffProwl player detected: |cffffffff",
+	["Player"] = " (Player)",
+	["Level"] = "Level",
+	["UNKNOWN"] = "Unknown",
+	["DRUID"] = "Druid",
+	["HUNTER"] = "Hunter",
+	["MAGE"] = "Mage",
+	["PALADIN"] = "Paladin",
+	["PRIEST"] = "Priest",
+	["ROGUE"] = "Rogue",
+	["SHAMAN"] = "Shaman",
+	["WARLOCK"] = "Warlock",
+	["WARRIOR"] = "Warrior",
+	["Stealth"] = "Stealth",
+	["Prowl"] = "Prowl",
+}
