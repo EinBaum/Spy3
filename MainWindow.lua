@@ -9,9 +9,43 @@ local function ClassColor(class)
 	return 0.5, 0.5, 0.5
 end
 
+local FontAlphabets = { "roman", "korean", "simplifiedchinese", "traditionalchinese", "russian" }
+local FontFamilies = {}
+
+-- SetFont keeps a single font file, so Cyrillic and CJK names render as boxes.
+-- A font family at the new height keeps the per-alphabet files of the base font,
+-- scaled by each alphabet's height relative to roman.
+local function FontFamilyAtSize(base, size)
+	local key = base:GetName().."_"..size
+	if FontFamilies[key] then
+		return FontFamilies[key]
+	end
+	local _, romanHeight = base:GetFontObjectForAlphabet("roman"):GetFont()
+	local members = {}
+	for _, alphabet in ipairs(FontAlphabets) do
+		local file, height, flags = base:GetFontObjectForAlphabet(alphabet):GetFont()
+		if file then
+			members[#members + 1] = {
+				alphabet = alphabet,
+				file = file,
+				height = size * height / romanHeight,
+				flags = flags or "",
+			}
+		end
+	end
+	local family = CreateFontFamily("Spy3Font_"..(key:gsub("%.", "_")), members)
+	FontFamilies[key] = family
+	return family
+end
+
 function Spy3:SetFontSize(fontString, size)
-	local font, _, flags = fontString:GetFont()
-	fontString:SetFont(font, size, flags)
+	local r, g, b, a = fontString:GetTextColor()
+	local sr, sg, sb, sa = fontString:GetShadowColor()
+	local sx, sy = fontString:GetShadowOffset()
+	fontString:SetFontObject(FontFamilyAtSize(fontString:GetFontObject(), size))
+	fontString:SetTextColor(r, g, b, a)
+	fontString:SetShadowColor(sr, sg, sb, sa)
+	fontString:SetShadowOffset(sx, sy)
 end
 
 local function AddBarEdge(parent, p1, p2, width, height)
