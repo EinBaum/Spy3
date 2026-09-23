@@ -1,6 +1,6 @@
 ## Interface: 16001
 ## Title: Spy3
-## Version: 1.2.2
+## Version: 1.2.3
 ## Notes: Detects nearby enemy players.
 ## Category: PvP
 ## OptionalDeps: Blizzard_EditMode
