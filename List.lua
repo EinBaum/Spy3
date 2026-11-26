@@ -268,13 +268,13 @@ end
 function Spy3:AddTestData()
 	local fakes = {
 		{ name = "Bigslam Skullcrusher", class = "WARRIOR", level = 60, race = "Orc" },
-		{ name = "Holyfist Brightblade", class = "PALADIN", level = 60, race = "Human" },
-		{ name = "Beastmaster Ironshot", class = "HUNTER", level = 59, race = "Dwarf" },
-		{ name = "Sneakattack Shadowstep", class = "ROGUE", level = 60, race = "Night Elf" },
-		{ name = "Mendwell Gravetide", class = "PRIEST", level = 58, race = "Undead" },
-		{ name = "Totemic Stormhoof", class = "SHAMAN", level = 60, race = "Tauren" },
-		{ name = "Frostfire Sparkcoil", class = "MAGE", level = 57, race = "Gnome" },
-		{ name = "Felhunter Darktusk", class = "WARLOCK", level = 60, race = "Troll" },
+		{ name = "Lumière Éclatant", class = "PALADIN", level = 60, race = "Human" },
+		{ name = "Охотник Меткий", class = "HUNTER", level = 59, race = "Dwarf" },
+		{ name = "Тень Кинжал", class = "ROGUE", level = 60, race = "Night Elf" },
+		{ name = "은빛 달그림자", class = "PRIEST", level = 58, race = "Undead" },
+		{ name = "风语 雷鸣", class = "SHAMAN", level = 60, race = "Tauren" },
+		{ name = "寒冰 龍焰", class = "MAGE", level = 57, race = "Gnome" },
+		{ name = "Größe Übelherz", class = "WARLOCK", level = 60, race = "Troll" },
 		{ name = "Barkskin Oakenshade", class = "DRUID", level = 56, race = "Night Elf" },
 		{ name = "Mystery Unknown", class = "UNKNOWN", level = 58, race = "Unknown" },
 	}
@@ -283,5 +283,5 @@ function Spy3:AddTestData()
 		local changed = Spy3:UpdatePlayerData(f.name, f.class, f.level, f.race, "Test Guild")
 		Spy3:AddDetected(f.name, now, changed)
 	end
-	Spy3:AlertStealthOrProwl("stealth", "Sneakattack Shadowstep")
+	Spy3:AlertStealthOrProwl("stealth", "Тень Кинжал")
 end
