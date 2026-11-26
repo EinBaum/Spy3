@@ -5,6 +5,9 @@ Spy3.RowHeight = 14
 Spy3.TextHeight = 12
 Spy3.WindowWidth = 160
 Spy3.Scaling = 1.15
+-- TOPLEFT offset from UIParent BOTTOMLEFT, in the window's scaled space.
+Spy3.DefaultX = 989.80
+Spy3.DefaultY = 418.88
 Spy3.BarTexture = [[Interface\RaidFrame\Raid-Bar-Hp-Fill]]
 Spy3.ActiveTimeout = 30
 Spy3.InactiveTimeout = 60
@@ -62,8 +65,7 @@ function Spy3:ResetPositions()
 	Spy3DB.x = nil
 	Spy3DB.y = nil
 	Spy3.MainWindow:ClearAllPoints()
-	Spy3.MainWindow:SetPoint("CENTER", UIParent)
-	Spy3:PinTopLeft()
+	Spy3.MainWindow:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", Spy3.DefaultX, Spy3.DefaultY)
 end
 
 local EventFrame = CreateFrame("Frame")

@@ -221,21 +221,17 @@ end
 
 function Spy3:RestoreMainWindowPosition()
 	local x, y = Spy3DB.x, Spy3DB.y
+	if not x or not y then
+		x, y = Spy3.DefaultX, Spy3.DefaultY
+	end
 	local frame = Spy3.MainWindow
 	frame:ClearAllPoints()
-	if not x or not y then
-		frame:SetPoint("CENTER", UIParent)
-	else
-		frame:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", x, y)
-	end
+	frame:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", x, y)
 	frame:SetWidth(Spy3.WindowWidth)
 	for i = 1, Spy3.ListLimit do
 		frame.Rows[i]:SetWidth(Spy3.WindowWidth)
 	end
 	frame:SetHeight(Spy3.RowHeight)
-	if not x or not y then
-		Spy3:PinTopLeft()
-	end
 end
 
 function Spy3:ShowTooltip(row, show)
