@@ -10,8 +10,8 @@ local function ClassColor(class)
 end
 
 function Spy3:SetFontSize(fontString, size)
-	local font, _, flags = fontString:GetFont()
-	fontString:SetFont(font, size, flags)
+	-- SetFont keeps only the roman face. Cyrillic is a separate family member.
+	fontString:SetFontHeight(size)
 end
 
 local function AddBarEdge(parent, p1, p2, width, height)
